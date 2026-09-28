@@ -1,77 +1,32 @@
 function irProyectos() {
-
-    document
-        .getElementById("proyectos")
-        .scrollIntoView({
-            behavior: "smooth"
-        });
-
+    document.getElementById("proyectos").scrollIntoView({
+        behavior: "smooth"
+    });
 }
-
 
 function irContacto() {
-
-    document
-        .getElementById("contacto")
-        .scrollIntoView({
-            behavior: "smooth"
-        });
-
+    document.getElementById("contacto").scrollIntoView({
+        behavior: "smooth"
+    });
 }
-
 
 function verProyecto(proyecto) {
+    const enlaces = {
+        gimnasio: "https://alexandercoarite.github.io/pagina-gimnasio/",
+        tecnologia: "https://alexandercoarite.github.io/techstore/",
+        barberia: "https://alexandercoarite.github.io/black-crown-barber/",
+        restaurante: "https://alexandercoarite.github.io/sabor-urbano/",
+        dental: "https://alexandercoarite.github.io/dentalcare/"
+    };
 
-    if (proyecto === "gimnasio") {
-
-        alert(
-            "Aquí colocarás el enlace de tu página del gimnasio."
-        );
-
+    if (enlaces[proyecto]) {
+        window.open(enlaces[proyecto], "_blank");
     }
-
-    else if (proyecto === "tecnologia") {
-
-        alert(
-            "Aquí colocarás el enlace de TechStore."
-        );
-
-    }
-
-    else if (proyecto === "barberia") {
-
-        alert(
-            "Aquí colocarás el enlace de Black Crown Barber."
-        );
-
-    }
-
-    else if (proyecto === "restaurante") {
-
-        alert(
-            "Aquí colocarás el enlace de Sabor Urbano."
-        );
-
-    }
-
-    else if (proyecto === "dental") {
-
-        alert(
-            "Aquí colocarás el enlace de DentalCare."
-        );
-
-    }
-
 }
 
-
 function abrirWhatsApp() {
-
-    const telefono =
-        "59100000000";
-
-    const mensaje =
-        "Hola Alexander, vi tu portafolio y estoy interesado en una página web.";
+    const telefono = "59100000000";
+    const mensaje = "Hola Alexander, vi tu portafolio y estoy interesado en una página web.";
 
     const enlace =
         "https://wa.me/" +
@@ -80,55 +35,32 @@ function abrirWhatsApp() {
         encodeURIComponent(mensaje);
 
     window.open(enlace, "_blank");
-
 }
 
+const formulario = document.getElementById("formularioContacto");
 
-const formulario =
-    document.getElementById("formularioContacto");
+formulario.addEventListener("submit", function(event) {
+    event.preventDefault();
 
+    const nombre = document.getElementById("nombre").value;
+    const tipoPagina = document.getElementById("tipoPagina").value;
+    const mensaje = document.getElementById("mensaje").value;
 
-formulario.addEventListener(
-    "submit",
-    function(event) {
+    const textoWhatsApp =
+        "Hola Alexander. Mi nombre es " +
+        nombre +
+        ". Estoy interesado en: " +
+        tipoPagina +
+        ".\n\n" +
+        mensaje;
 
-        event.preventDefault();
+    const telefono = "59100000000";
 
+    const enlace =
+        "https://wa.me/" +
+        telefono +
+        "?text=" +
+        encodeURIComponent(textoWhatsApp);
 
-        const nombre =
-            document.getElementById("nombre").value;
-
-        const tipoPagina =
-            document.getElementById("tipoPagina").value;
-
-        const mensaje =
-            document.getElementById("mensaje").value;
-
-
-        const textoWhatsApp =
-            "Hola Alexander. Mi nombre es " +
-            nombre +
-            ". Estoy interesado en: " +
-            tipoPagina +
-            ".%0A%0A" +
-            mensaje;
-
-
-        const telefono =
-            "59100000000";
-
-
-        const enlace =
-            "https://wa.me/" +
-            telefono +
-            "?text=" +
-            encodeURIComponent(textoWhatsApp);
-
-
-        window.open(
-            enlace,
-            "_blank"
-        );
-
-    }
-);
+    window.open(enlace, "_blank");
+});
