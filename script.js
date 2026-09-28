@@ -25,7 +25,7 @@ function verProyecto(proyecto) {
 }
 
 function abrirWhatsApp() {
-    const telefono = "59100000000";
+    const telefono = "59167114012";
     const mensaje = "Hola Alexander, vi tu portafolio y estoy interesado en una página web.";
 
     const enlace =
@@ -54,7 +54,7 @@ formulario.addEventListener("submit", function(event) {
         ".\n\n" +
         mensaje;
 
-    const telefono = "59100000000";
+    const telefono = "59167114012";
 
     const enlace =
         "https://wa.me/" +
